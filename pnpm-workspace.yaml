@@ -1,0 +1,6 @@
+packages:
+  - .
+  - studio-e_commerce-ai
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
