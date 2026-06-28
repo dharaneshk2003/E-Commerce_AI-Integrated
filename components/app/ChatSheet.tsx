@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-// import { useChat } from "@ai-sdk/react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { useAuth } from "@clerk/nextjs";
 import { Sparkles, Send, Loader2, X, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,13 +13,13 @@ import {
   usePendingMessage,
 } from "@/lib/store/chat-store-provider";
 
-// import {
-//   getMessageText,
-//   getToolParts,
-//   WelcomeScreen,
-//   MessageBubble,
-//   ToolCallUI,
-// } from "./chat";
+import {
+  getMessageText,
+  getToolParts,
+  WelcomeScreen,
+  MessageBubble,
+  ToolCallUI,
+} from "./chat";
 
 export function ChatSheet() {
   const isOpen = useIsChatOpen();
@@ -28,7 +29,9 @@ export function ChatSheet() {
   const [input, setInput] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+  });
   const isLoading = status === "streaming" || status === "submitted";
 
   // Auto-scroll to bottom when new messages arrive or streaming updates

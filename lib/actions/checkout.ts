@@ -1,8 +1,8 @@
 "use server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { client, writeClient } from "../../../studio-e_commerce-ai/lib/client";
-import { PRODUCTS_BY_IDS_QUERY } from "../../../studio-e_commerce-ai/queries/products";
+import { client, writeClient } from "@/studio-e_commerce-ai/lib/client";
+import { PRODUCTS_BY_IDS_QUERY } from "@/studio-e_commerce-ai/queries/products";
 
 // Types
 interface CartItem {
