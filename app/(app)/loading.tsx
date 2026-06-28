@@ -1,4 +1,4 @@
-import {React} from "react";
+import { React } from "react";
 import { CategoryTilesSkeleton } from "@/components/app/CategoryTilesSkeleton";
 import { ProductFiltersSkeleton } from "@/components/app/ProductFiltersSkeleton";
 import { ProductGridSkeleton } from "@/components/app/ProductGridSkeleton";
